@@ -6,15 +6,16 @@ import RemoveFAvourites from "../components/removeFAvourites";
 const Favourites = () => {
   const { favourites, RemoveFavouriteMovie } = useContext(FavouritesContext);
 
-  console.log("###", favourites);
   return (
     <>
       <h1>Favourites</h1>
-      <FavouritesList
-        favourites={favourites}
-        RemoveFavouriteMovie={RemoveFavouriteMovie}
-        RemoveFAvourites={RemoveFAvourites}
-      />
+      <div className="container-fluid movie-app mt-5">
+        <FavouritesList
+          favourites={favourites}
+          RemoveFavouriteMovie={RemoveFavouriteMovie}
+          RemoveFAvourites={RemoveFAvourites}
+        />
+      </div>
     </>
   );
 };
