@@ -4,11 +4,13 @@ import SearchBar from "../components/searchBar";
 import MoviesList from "../components/moviesList";
 import { FavouritesContext } from "../components/context/favouritesContext";
 import AddFavourites from "../components/addFavourites";
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
   const [movies, setMovies] = useState([]);
   const [search, setSearch] = useState("");
   const { AddFavouriteMovies } = useContext(FavouritesContext);
+  const navigate = useNavigate();
 
   const getMoviesList = async () => {
     const searchurl = `https://www.omdbapi.com/?s=${search}&apikey=3922a248`;
@@ -24,6 +26,10 @@ const Home = () => {
     getMoviesList();
   }, [search]);
 
+  const getDetails = (movie) => {
+    navigate(`/details/${movie.imdbID}`);
+  };
+
   return (
     <>
       <h1>Home Component</h1>
@@ -34,6 +40,7 @@ const Home = () => {
         </div>
         <div className="row">
           <MoviesList
+            getDetails={getDetails}
             movies={movies}
             handleFavClick={AddFavouriteMovies}
             favouriteComponent={AddFavourites}

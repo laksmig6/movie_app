@@ -18,7 +18,9 @@ const App = () => {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/favourites" element={<Favourites />} />
-            <Route path="/details/id=1" element={<Details />} />
+            <Route path="/details" element={<Details />}>
+              <Route path=":id" element={<Details />} />
+            </Route>
             <Route path="*" element={<NotFound />} />
           </Routes>
         </FavouriteContextProvider>

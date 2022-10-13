@@ -10,6 +10,7 @@ const FavouritesList = (props) => {
       </div>
       <div className="row">
         <MoviesList
+          getDetails={props.getDetails}
           movies={props.favourites}
           handleFavClick={props.RemoveFavouriteMovie}
           favouriteComponent={props.RemoveFAvourites}

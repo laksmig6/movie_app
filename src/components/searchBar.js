@@ -8,7 +8,6 @@ const SearchBar = (props) => {
         type="text"
         placeholder="Type to search"
         onChange={(event) => {
-          console.log("value changed", event.target.value);
           props.setSearch(event.target.value);
         }}
       />

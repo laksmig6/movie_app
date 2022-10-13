@@ -6,7 +6,6 @@ function FavouriteContextProvider(props) {
   const [favourites, setFavourites] = useState([]);
 
   const AddFavouriteMovies = (movie) => {
-    console.log("AddFavouriteMovies");
     const newFavList = [...favourites, movie];
     setFavourites(newFavList);
   };
