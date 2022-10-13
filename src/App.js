@@ -7,24 +7,21 @@ import Details from "./pages/Details";
 import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
 import FavouriteContextProvider from "./components/context/favouritesContext";
-import SelectedContextProvider from "./components/context/selectedContext";
 
 const App = () => {
   return (
     <>
       <Header />
-      <SelectedContextProvider>
-        <FavouriteContextProvider>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/favourites" element={<Favourites />} />
-            <Route path="/details" element={<Details />}>
-              <Route path=":id" element={<Details />} />
-            </Route>
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </FavouriteContextProvider>
-      </SelectedContextProvider>
+      <FavouriteContextProvider>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/favourites" element={<Favourites />} />
+          <Route path="/details" element={<Details />}>
+            <Route path=":id" element={<Details />} />
+          </Route>
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </FavouriteContextProvider>
     </>
   );
 };
