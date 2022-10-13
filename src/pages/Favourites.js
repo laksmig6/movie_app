@@ -9,7 +9,7 @@ const Favourites = () => {
   const navigate = useNavigate();
 
   const getDetails = (movie) => {
-    navigate(`/details/id=${movie.imdbID}`);
+    navigate(`/details/${movie.imdbID}`);
   };
 
   return (
