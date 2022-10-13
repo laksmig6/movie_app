@@ -22,7 +22,7 @@ const Details = () => {
 
   return (
     <>
-      <h1>Details Component</h1>
+      <h1>Movie Details</h1>
       <div className="container-fluid movie-app mt-5">
         <MovieDetails movie={details} />
       </div>

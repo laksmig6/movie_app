@@ -1,12 +1,18 @@
-import React, { useContext } from "react";
+import React, { useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import FavouritesList from "../components/favouritesList";
 import { FavouritesContext } from "../components/context/favouritesContext";
 import RemoveFAvourites from "../components/removeFAvourites";
 
 const Favourites = () => {
-  const { favourites, RemoveFavouriteMovie } = useContext(FavouritesContext);
+  const { favourites, setFavourites, RemoveFavouriteMovie } =
+    useContext(FavouritesContext);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const savedFavourites = JSON.parse(localStorage.getItem("favourites"));
+    setFavourites(savedFavourites);
+  }, []);
 
   const getDetails = (movie) => {
     navigate(`/details/${movie.imdbID}`);

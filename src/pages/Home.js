@@ -32,10 +32,9 @@ const Home = () => {
 
   return (
     <>
-      <h1>Home Component</h1>
       <div className="container-fluid movie-app mt-5">
         <div className="row d-flex align-items-center justify-content-between pt-4 mb-4">
-          <MovieTitle heading="movies" />
+          <MovieTitle heading="Search For Movies" />
           <SearchBar search={search} setSearch={setSearch} />
         </div>
         <div className="row">
