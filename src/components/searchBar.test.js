@@ -1,15 +1,18 @@
-// import { fireEvent, render } from "@testing-library/react";
-// import SearchBar from "./searchBar";
+import { fireEvent, render } from "@testing-library/react";
+import SearchBar from "./searchBar";
 
-// test("SearchBar displays searchtext", () => {
-//   const searchBox = render(<SearchBar search={"abc"} setSearch={() => {}} />);
-//   const searchEle = searchBox.getByTestId("search-text");
+describe("SearchBar Input value", () => {
+  it("updates on change", () => {
+    const setSearch = jest.fn(() => {});
 
-//   expect(searchEle.value).toBe("abc");
+    const { queryByPlaceholderText } = render(
+      <SearchBar setSearch={setSearch} />
+    );
 
-//   fireEvent.change(searchEle, { target: { value: "xyz" } });
+    const searchInput = queryByPlaceholderText("Type to search");
 
-//   console.log(searchBox.debug());
+    fireEvent.change(searchInput, { target: { value: "star" } });
 
-//   expect(searchEle.value).toBe("xyz");
-// });
+    expect(searchInput.value).toBe("star");
+  });
+});

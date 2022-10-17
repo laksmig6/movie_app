@@ -6,6 +6,8 @@ const SearchBar = (props) => {
       <input
         className="form-control"
         type="text"
+        data-testid="search-text"
+        value={props.search}
         placeholder="Type to search"
         onChange={(event) => {
           props.setSearch(event.target.value);
