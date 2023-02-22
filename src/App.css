@@ -8,6 +8,10 @@ body {
   flex-wrap: nowrap;
 }
 
+.navbar {
+  color: #fff;
+}
+
 .movie-app > .row > * {
   width: auto;
 }

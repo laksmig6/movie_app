@@ -1,23 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "./useOnlineStatus";
 
 const Header = () => {
-  const [isOnline, setIsOnline] = useState(true);
-
-  useEffect(() => {
-    function handleOnline() {
-      setIsOnline(true);
-    }
-    function handleOffline() {
-      setIsOnline(false);
-    }
-    window.addEventListener("online", handleOnline);
-    window.addEventListener("offline", handleOffline);
-    return () => {
-      window.addEventListener("online", handleOnline);
-      window.addEventListener("offline", handleOffline);
-    };
-  }, []);
+  const isOnline = useOnlineStatus();
 
   return (
     <header className="navbar navbar-expand justify-content-between fixed-top navbar-dark bg-dark bd-navbar">
@@ -35,7 +21,7 @@ const Header = () => {
           </li>
         </ul>
       </div>
-      <div className="pr-3">{isOnline ? "✅ Online" : "❌ Disconnected"}</div>
+      <div>{isOnline ? "✅ Online" : "❌ Disconnected"}</div>
     </header>
   );
 };
