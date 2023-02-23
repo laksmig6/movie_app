@@ -10,7 +10,10 @@ function FavouriteContextProvider(props) {
   };
 
   const AddFavouriteMovies = (movie) => {
-    const newFavList = [...favourites, movie];
+    var newFavList = favourites;
+    if (favourites.indexOf(movie) < 0) {
+      newFavList = [...favourites, movie];
+    }
     setFavourites(newFavList);
     saveToLocalStorage(newFavList);
   };
@@ -21,11 +24,18 @@ function FavouriteContextProvider(props) {
     saveToLocalStorage(newFavList);
   };
 
+  const ClearFavourites = () => {
+    const newFavList = [];
+    setFavourites(newFavList);
+    saveToLocalStorage(newFavList);
+  };
+
   const fav = {
     favourites,
     setFavourites,
     AddFavouriteMovies,
     RemoveFavouriteMovie,
+    ClearFavourites,
   };
 
   return (

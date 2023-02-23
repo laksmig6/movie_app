@@ -5,8 +5,13 @@ import { FavouritesContext } from "../components/context/favouritesContext";
 import RemoveFAvourites from "../components/removeFAvourites";
 
 const Favourites = () => {
-  const { favourites, setFavourites, RemoveFavouriteMovie } =
-    useContext(FavouritesContext);
+  const {
+    favourites,
+    setFavourites,
+    addError,
+    RemoveFavouriteMovie,
+    ClearFavourites,
+  } = useContext(FavouritesContext);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -27,6 +32,7 @@ const Favourites = () => {
           favourites={favourites}
           RemoveFavouriteMovie={RemoveFavouriteMovie}
           RemoveFAvourites={RemoveFAvourites}
+          ClearFavourites={ClearFavourites}
         />
       </div>
     </>

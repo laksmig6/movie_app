@@ -11,7 +11,7 @@ const SearchBar = (props) => {
         className="form-control"
         type="text"
         data-testid="search-text"
-        value={props.search}
+        value={isOnline ? props.search : "Reconnecting..."}
         placeholder={isOnline ? "Type to search" : "Reconnecting..."}
         onChange={(event) => {
           props.setSearch(event.target.value);
