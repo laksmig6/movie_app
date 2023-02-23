@@ -9,10 +9,7 @@ const MoviesList = (props) => {
           className="image-container d-flex justify-content-center m-3"
           key={index}
         >
-          <img
-            src={movie.Poster}
-            onClick={() => props.getDetails(movie)}
-          />
+          <img src={movie.Poster} onClick={() => props.getDetails(movie)} />
           <div
             onClick={() => props.handleFavClick(movie)}
             className="overlay d-flex align-items-center justify-center"

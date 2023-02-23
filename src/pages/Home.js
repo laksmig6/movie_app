@@ -5,10 +5,11 @@ import MoviesList from "../components/moviesList";
 import { FavouritesContext } from "../components/context/favouritesContext";
 import AddFavourites from "../components/addFavourites";
 import { useNavigate } from "react-router-dom";
+import ErrorBoundary from "../components/errorBoudary";
 
 const Home = () => {
   const [movies, setMovies] = useState([]);
-  const [search, setSearch] = useState("");
+  const [search, setSearch] = useState("star");
   const { AddFavouriteMovies } = useContext(FavouritesContext);
   const navigate = useNavigate();
 
@@ -31,12 +32,13 @@ const Home = () => {
   };
 
   return (
-    <>
+    <ErrorBoundary>
       <div className="container-fluid movie-app mt-5">
         <div className="row d-flex align-items-center justify-content-between pt-4 mb-4">
           <MovieTitle heading="Search For Movies" />
           <SearchBar search={search} setSearch={setSearch} />
         </div>
+
         <div className="row">
           <MoviesList
             getDetails={getDetails}
@@ -46,7 +48,7 @@ const Home = () => {
           />
         </div>
       </div>
-    </>
+    </ErrorBoundary>
   );
 };
 
