@@ -25,6 +25,11 @@ const Header = () => {
               Form
             </Link>
           </li>
+          <li className="nav-item">
+            <Link className="nav-link text-light" to="/example">
+              Example
+            </Link>
+          </li>
         </ul>
       </div>
       <div

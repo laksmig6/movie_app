@@ -6,6 +6,7 @@ import Favourites from "./pages/Favourites";
 import Details from "./pages/Details";
 import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
+import Example from "./pages/Example";
 import LoginForm from "./components/loginForm";
 import FavouriteContextProvider from "./components/context/favouritesContext";
 
@@ -18,6 +19,7 @@ const App = () => {
           <Route path="/" element={<Home />} />
           <Route path="/favourites" element={<Favourites />} />
           <Route path="/login" element={<LoginForm />} />
+          <Route path="/example" element={<Example />} />
           <Route path="/details" element={<Details />}>
             <Route path=":id" element={<Details />} />
           </Route>
