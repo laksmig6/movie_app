@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
+import { createPortal } from "react-dom";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "./useOnlineStatus";
 
 const Header = () => {
   const isOnline = useOnlineStatus();
-
+  const [showModal, setShowModal] = useState(false);
   return (
     <header className="navbar navbar-expand justify-content-between fixed-top navbar-dark bg-dark bd-navbar">
       <div className="navbar-header">
@@ -26,7 +27,23 @@ const Header = () => {
           </li>
         </ul>
       </div>
-      <div>{isOnline ? "✅ Online" : "❌ Disconnected"}</div>
+      <div
+        onClick={() => {
+          setShowModal(true);
+        }}
+      >
+        {isOnline ? "✅ Online" : "❌ Disconnected"}
+      </div>
+
+      {showModal &&
+        createPortal(
+          <div className="popup">
+            <p>This child is placed in the document body.</p>
+            <span>online status: {isOnline ? "Active" : "Offline"}</span>
+            <button onClick={() => setShowModal(false)}>Close</button>
+          </div>,
+          document.body
+        )}
     </header>
   );
 };
