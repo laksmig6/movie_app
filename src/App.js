@@ -1,5 +1,5 @@
 import "./App.css";
-import { Routes, Route } from "react-router-dom";
+import { Navigate, Routes, Route } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Header from "./components/header";
 import Favourites from "./pages/Favourites";
@@ -18,6 +18,7 @@ const App = () => {
           <Route path="/" element={<Home />} />
           <Route path="/favourites" element={<Favourites />} />
           <Route path="/login" element={<LoginForm />} />
+          <Route path="/details/" element={<Navigate to="/" />} />
           <Route path="/details" element={<Details />}>
             <Route path=":id" element={<Details />} />
           </Route>
