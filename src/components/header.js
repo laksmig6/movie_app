@@ -19,6 +19,11 @@ const Header = () => {
               Favourites List
             </Link>
           </li>
+          <li className="nav-item">
+            <Link className="nav-link text-light" to="/login">
+              Form
+            </Link>
+          </li>
         </ul>
       </div>
       <div>{isOnline ? "✅ Online" : "❌ Disconnected"}</div>
