@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 
 const WithCounter = (OriginalComponent) => {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = React.useState(0);
   const increaseCount = () => {
     setCount(count + 1);
   };
