@@ -58,3 +58,15 @@ body {
   left: calc(50% - 250px);
   top: calc(50% - 100px);
 }
+
+.formal-login {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+}
+
+.formal-login > label,
+.formal-login > input {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
